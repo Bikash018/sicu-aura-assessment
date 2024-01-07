@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import Webcam from 'react-webcam';
 import background from "../src/assets/sicu-aura image.png";
 import doctor from "../src/assets/doctor.png";
@@ -12,11 +12,8 @@ const videoConstraints = {
 };
 
 function Logincpy() {
-  const history = useNavigate();
-  const [Hospital, setHospital] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
-  const [Acode, setAcode] = useState('')
+
+
   const [capturedPhoto, setCapturedPhoto] = useState(null);
   const webcamRef = useRef(null);
 
@@ -29,30 +26,7 @@ function Logincpy() {
     setCapturedPhoto(null);
   };
 
-  const submit = async (e) => {
-    e.preventDefault();
 
-    try {
-      await axios
-        .post("https://sisu-aura-server.onrender.com/", {
-          Email,
-          Password,
-        })
-        .then((res) => {
-          if (res.data === "exist") {
-            history("/home", { state: { id: Email } });
-          } else if (res.data === "notexist") {
-            alert("User has not signed up");
-          }
-        })
-        .catch((e) => {
-          alert("Wrong details");
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   return (
     <div className="login-container">

@@ -7,11 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   
-  const user = {
-    name: 'John Doe',
-    profileImage: 'path/to/user-image.jpg', 
-  };
-
+ 
  
     
  

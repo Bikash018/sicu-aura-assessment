@@ -1,10 +1,8 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Home from "./home";
 import Signup from "./signup";
 import Login from "./login";
-import axios from "axios";
 import Logincpy from "./capture2";
 
 function App() {
